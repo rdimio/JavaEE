@@ -1,0 +1,13 @@
+
+# Default ignored files
+/firstapp//shelf/
+/firstapp/workspace.xml
+# Datasource local storage ignored files
+/firstapp/dataSources/
+/firstapp/dataSources.local.xml
+# Editor-based HTTP Client requests
+/firstapp/httpRequests/
+.idea
+*.iml
+/firstapp/target/
+/firstapp/.idea/
