@@ -4,5 +4,43 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+  <servlet>
+    <servlet-name>ProductServlet</servlet-name>
+    <servlet-class>ru.geekbrains.ProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductServlet</servlet-name>
+    <url-pattern>/product</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>CartServlet</servlet-name>
+    <servlet-class>ru.geekbrains.CartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CartServlet</servlet-name>
+    <url-pattern>/cart</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>OrderServlet</servlet-name>
+    <servlet-class>ru.geekbrains.OrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderServlet</servlet-name>
+    <url-pattern>/order</url-pattern>
+  </servlet-mapping>
+
+  <error-page>
+    <error-code>403</error-code>
+    <location>/WEB-INF/error.jsp</location>
+  </error-page>
+
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/error.jsp</location>
+  </error-page>
+
   <display-name>Archetype Created Web Application</display-name>
 </web-app>
+
