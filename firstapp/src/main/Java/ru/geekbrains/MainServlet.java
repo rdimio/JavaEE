@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "MainServlet", urlPatterns = "/main")
+@WebServlet(name = "MainServlet", urlPatterns = "/")
 public class MainServlet extends HttpServlet {
 
     private static Logger logger = LoggerFactory.getLogger(MainServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.info("New Get request /main");
-        resp.getWriter().println("<h1>Main</h1>");
+        logger.info("New Get request main");
+        getServletContext().getRequestDispatcher("index.jsp").include(req, resp);
     }
 }

@@ -11,12 +11,12 @@
     <title>Menu</title>
 </head>
 <body>
-<ul id="navigation menu">
-    <li><a href="${pageContext.request.contextPath}/main">Main</a></li>
-    <li><a href="${pageContext.request.contextPath}/catalog">Catalog</a></li>
-    <li><a href="${pageContext.request.contextPath}/order">Order</a></li>
-    <li><a href="${pageContext.request.contextPath}/product">Product</a></li>
-    <li><a href="${pageContext.request.contextPath}/cart">Cart</a></li>
+<ul style="list-style-type: none">
+    <li style="display: inline-block"><a href="${pageContext.request.contextPath}/">Main</a></li>
+    <li style="display: inline-block"><a href="${pageContext.request.contextPath}/catalog">Catalog</a></li>
+    <li style="display: inline-block"><a href="${pageContext.request.contextPath}/order">Order</a></li>
+    <li style="display: inline-block"><a href="${pageContext.request.contextPath}/product">Product</a></li>
+    <li style="display: inline-block"><a href="${pageContext.request.contextPath}/cart">Cart</a></li>
 </ul>
 </body>
 </html>

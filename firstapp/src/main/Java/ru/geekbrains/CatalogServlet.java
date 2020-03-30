@@ -18,6 +18,7 @@ public class CatalogServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.info("New Get request /catalog");
-        resp.getWriter().println("<h1>Catalog</h1>");
+        getServletContext().getRequestDispatcher("/WEB-INF/catalog.jsp").include(req, resp);
     }
+
 }

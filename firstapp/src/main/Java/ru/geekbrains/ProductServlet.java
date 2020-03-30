@@ -16,6 +16,6 @@ public class ProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.info("New Get request /product");
-        resp.getWriter().println("<h1>Product</h1>");
+        getServletContext().getRequestDispatcher("/WEB-INF/product.jsp").include(req, resp);;
     }
 }

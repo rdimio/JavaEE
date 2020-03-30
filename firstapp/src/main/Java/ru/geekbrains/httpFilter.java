@@ -5,7 +5,7 @@ import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
 @WebFilter(urlPatterns = "/*")
-public class Utf8HeaderHttpFilter implements Filter {
+public class httpFilter implements javax.servlet.Filter {
 
     private transient FilterConfig filterConfig;
 
@@ -17,10 +17,8 @@ public class Utf8HeaderHttpFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
                          FilterChain filterChain) throws IOException, ServletException {
-        servletRequest.setCharacterEncoding("UTF-8");
-        servletResponse.setCharacterEncoding("UTF-8");
         filterChain.doFilter(servletRequest, servletResponse);
-        filterConfig.getServletContext().getRequestDispatcher("/WEB-INF/menu.jsp").include(servletRequest, servletResponse);
+//        filterConfig.getServletContext().getRequestDispatcher("/WEB-INF/menu.jsp").include(servletRequest, servletResponse);
     }
 
     @Override
