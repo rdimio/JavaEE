@@ -11,3 +11,5 @@
 *.iml
 /firstapp/target/
 /firstapp/.idea/
+/JsfWebApp/.idea/
+/JsfWebApp/target/
