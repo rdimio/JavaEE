@@ -1,0 +1,7 @@
+ru/geekbrains/HelloWorldServlet.class
+ru/geekbrains/filter/HeaderFooterFilter.class
+ru/geekbrains/persist/Product.class
+ru/geekbrains/FirstHttpServlet.class
+ru/geekbrains/persist/ProductRepository.class
+ru/geekbrains/ProductServlet.class
+ru/geekbrains/listener/AppListener.class
