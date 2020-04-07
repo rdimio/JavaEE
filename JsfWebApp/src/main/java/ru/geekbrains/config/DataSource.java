@@ -21,8 +21,8 @@ public class DataSource {
     @PostConstruct
     public void init() throws SQLException {
         String jdbcConnectionString = ctx.getInitParameter("jdbcConnectionString");
-        String dbUsername = ctx.getInitParameter("postgres");
-        String dbPassword = ctx.getInitParameter("15549700");
+        String dbUsername = ctx.getInitParameter("dbUsername");
+        String dbPassword = ctx.getInitParameter("dbPassword");
 
         connection = DriverManager.getConnection(jdbcConnectionString, dbUsername, dbPassword);
     }

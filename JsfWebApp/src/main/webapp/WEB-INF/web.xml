@@ -13,12 +13,12 @@
 
     <context-param>
         <param-name>dbUsername</param-name>
-        <param-value>root</param-value>
+        <param-value>postgres</param-value>
     </context-param>
 
     <context-param>
         <param-name>dbPassword</param-name>
-        <param-value>root</param-value>
+        <param-value>15549700</param-value>
     </context-param>
 
     <servlet>
@@ -36,4 +36,9 @@
         <error-code>404</error-code>
         <location>/WEB-INF/error404.html</location>
     </error-page>
+
+    <welcome-file-list>
+        <welcome-file>index.xhtml</welcome-file>
+    </welcome-file-list>
+
 </web-app>
