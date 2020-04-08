@@ -43,7 +43,6 @@ public class ProductController implements Serializable {
 
     public void deleteProduct(Product product) throws SQLException {
         productRepository.delete(product.getId());
-        //return "/index.xhtml?faces-redirect=true";
     }
 
     public String saveProduct() throws SQLException {

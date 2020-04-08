@@ -5,8 +5,9 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <ui:include src="WEB-INF/head.xhtml">
-    <ui:param name="pageHeader" value="Product list"/>
+    <ui:param name="pageHeader" value="List"/>
 </ui:include>
+
 
 <h:body>
 
@@ -47,12 +48,95 @@
                                              styleClass="btn btn-danger">
                                 <f:ajax event="click" render="productForm"/>
                             </h:commandButton>
+                            <h:commandButton value="Add to cart" action="#{cartController.saveToCart(product)}"
+                                             styleClass="btn btn-warning mr-1"/>
                         </h:column>
                     </h:dataTable>
                 </div>
             </h:form>
         </div>
     </div>
+
+    <div class="container">
+        <div class="row py-2">
+            <h:form id="orderForm">
+                <div class="col-12">
+                    <h:commandButton value="Add order" styleClass="btn btn-primary"
+                                     action="#{orderController.createOrder}"/>
+                </div>
+
+                <div class="col-12">
+                    <h:dataTable value="#{orderController.allOrder}" var="order"
+                                 styleClass="table table-bordered my-2">
+                        <h:column>
+                            <f:facet name="header">Id</f:facet>
+                            #{order.id}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Name</f:facet>
+                            #{order.name}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Description</f:facet>
+                            #{order.description}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Price</f:facet>
+                            #{order.price}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Action</f:facet>
+                            <h:commandButton value="Edit" action="#{orderController.editOrder(order)}"
+                                             styleClass="btn btn-success mr-1"/>
+                            <h:commandButton value="Delete" action="#{orderController.deleteOrder(order)}"
+                                             styleClass="btn btn-danger">
+                                <f:ajax event="click" render="orderForm"/>
+                            </h:commandButton>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+            </h:form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row py-2">
+            <h:form id="categoryForm">
+                <div class="col-12">
+                    <h:commandButton value="Add category" styleClass="btn btn-primary"
+                                     action="#{categoryController.createCategory}"/>
+                </div>
+
+                <div class="col-12">
+                    <h:dataTable value="#{categoryController.allCategory}" var="category"
+                                 styleClass="table table-bordered my-2">
+                        <h:column>
+                            <f:facet name="header">Id</f:facet>
+                            #{category.id}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Name</f:facet>
+                            #{category.name}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Description</f:facet>
+                            #{category.description}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Action</f:facet>
+                            <h:commandButton value="Edit" action="#{categoryController.editCategory(category)}"
+                                             styleClass="btn btn-success mr-1"/>
+                            <h:commandButton value="Delete" action="#{categoryController.deleteCategory(category)}"
+                                             styleClass="btn btn-danger">
+                                <f:ajax event="click" render="categoryForm"/>
+                            </h:commandButton>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+            </h:form>
+        </div>
+    </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -66,4 +150,5 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
 </h:body>
+
 </html>
