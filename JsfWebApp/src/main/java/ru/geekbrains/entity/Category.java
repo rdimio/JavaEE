@@ -1,12 +1,24 @@
 package ru.geekbrains.entity;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "categories")
 public class Category {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String name;
 
+    @Column
     private String description;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "category")
+    private List<Product> product;
 
     public Category(){}
 
@@ -38,5 +50,13 @@ public class Category {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Product> getProduct() {
+        return product;
+    }
+
+    public void setProduct(List<Product> product) {
+        this.product = product;
     }
 }

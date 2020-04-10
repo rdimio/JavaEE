@@ -6,21 +6,6 @@
 
     <display-name>Archetype Created Web Application</display-name>
 
-    <context-param>
-        <param-name>jdbcConnectionString</param-name>
-        <param-value>jdbc:postgresql://localhost:5432/javaee_test_db?createDatabaseIfNotExist=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</param-value>
-    </context-param>
-
-    <context-param>
-        <param-name>dbUsername</param-name>
-        <param-value>postgres</param-value>
-    </context-param>
-
-    <context-param>
-        <param-name>dbPassword</param-name>
-        <param-value>15549700</param-value>
-    </context-param>
-
     <servlet>
         <servlet-name>faces-servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>

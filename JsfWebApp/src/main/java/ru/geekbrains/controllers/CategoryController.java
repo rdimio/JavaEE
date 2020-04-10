@@ -1,13 +1,12 @@
 package ru.geekbrains.controllers;
 
 import ru.geekbrains.entity.Category;
-import ru.geekbrains.repositories.CategoryRepository;
+import ru.geekbrains.services.CategoryService;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.sql.SQLException;
 import java.util.List;
 
 @SessionScoped
@@ -15,7 +14,7 @@ import java.util.List;
 public class CategoryController implements Serializable {
 
     @Inject
-    private CategoryRepository categoryRepository;
+    private CategoryService categoryService;
 
     private Category category;
 
@@ -32,8 +31,8 @@ public class CategoryController implements Serializable {
         return "/category.xhtml?faces-redirect=true";
     }
 
-    public List<Category> getAllCategory() throws SQLException {
-        return categoryRepository.findAll();
+    public List<Category> getAllCategory(){
+        return categoryService.findAll();
     }
 
     public String editCategory(Category category) {
@@ -41,16 +40,16 @@ public class CategoryController implements Serializable {
         return "/category.xhtml?faces-redirect=true";
     }
 
-    public void deleteCategory(Category category) throws SQLException {
-        categoryRepository.delete(category.getId());
+    public void deleteCategory(Category category){
+        categoryService.delete(category.getId());
         //return "/index.xhtml?faces-redirect=true";
     }
 
-    public String saveCategory() throws SQLException {
+    public String saveCategory(){
         if (category.getId() == null) {
-            categoryRepository.insert(category);
+            categoryService.insert(category);
         } else {
-            categoryRepository.update(category);
+            categoryService.update(category);
         }
         return "/index.xhtml?faces-redirect=true";
     }
