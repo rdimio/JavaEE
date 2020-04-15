@@ -2,6 +2,7 @@ package ru.geekbrains.controllers;
 
 import ru.geekbrains.entity.Product;
 import ru.geekbrains.repositories.CartRepository;
+import ru.geekbrains.services.CartService;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -14,18 +15,18 @@ import java.util.List;
 public class CartController implements Serializable {
 
     @Inject
-    private CartRepository cartRepository;
+    private CartService cartService;
 
 
     public List<Product> getAllCart() {
-        return cartRepository.findAll();
+        return cartService.findAll();
     }
 
     public void deleteFromCart(Product product) {
-        cartRepository.delete(product.getId());
+        cartService.delete(product.getId());
     }
 
     public void saveToCart(Product product) {
-        cartRepository.insert(product);
+        cartService.insert(product);
     }
 }

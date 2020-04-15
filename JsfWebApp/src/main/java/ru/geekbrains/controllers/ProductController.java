@@ -1,13 +1,14 @@
 package ru.geekbrains.controllers;
 
+import ru.geekbrains.entity.Category;
 import ru.geekbrains.entity.Product;
-import ru.geekbrains.repositories.ProductRepository;
+import ru.geekbrains.services.CategoryService;
+import ru.geekbrains.services.ProductService;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.sql.SQLException;
 import java.util.List;
 
 @SessionScoped
@@ -15,9 +16,22 @@ import java.util.List;
 public class ProductController implements Serializable {
 
     @Inject
-    private ProductRepository productRepository;
+    private ProductService productService;
+
+    @Inject
+    private CategoryService categoryService;
 
     private Product product;
+    private Category category;
+    private Long category_id;
+
+    public Long getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(Long category_id) {
+        this.category_id = category_id;
+    }
 
     public Product getProduct() {
         return product;
@@ -32,8 +46,8 @@ public class ProductController implements Serializable {
         return "/product.xhtml?faces-redirect=true";
     }
 
-    public List<Product> getAllProduct() throws SQLException {
-        return productRepository.findAll();
+    public List<Product> getAllProduct() {
+        return productService.findAll();
     }
 
     public String editProduct(Product product) {
@@ -41,16 +55,22 @@ public class ProductController implements Serializable {
         return "/product.xhtml?faces-redirect=true";
     }
 
-    public void deleteProduct(Product product) throws SQLException {
-        productRepository.delete(product.getId());
+    public void deleteProduct(Product product) {
+        productService.delete(product.getId());
     }
 
-    public String saveProduct() throws SQLException {
+    public String saveProduct() {
+        category = findById(category_id);
+        product.setCategory(category);
         if (product.getId() == null) {
-            productRepository.insert(product);
+            productService.insert(product);
         } else {
-            productRepository.update(product);
+            productService.update(product);
         }
         return "/index.xhtml?faces-redirect=true";
+    }
+
+    public Category findById(Long id){
+        return categoryService.findById(id);
     }
 }
