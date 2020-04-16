@@ -1,11 +1,10 @@
 package ru.geekbrains.controllers;
 
 import ru.geekbrains.entity.Product;
-import ru.geekbrains.repositories.CartRepository;
-import ru.geekbrains.services.CartService;
+import ru.geekbrains.services.interfaces.CartIntService;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
@@ -14,9 +13,8 @@ import java.util.List;
 @Named
 public class CartController implements Serializable {
 
-    @Inject
-    private CartService cartService;
-
+    @EJB
+    private CartIntService cartService;
 
     public List<Product> getAllCart() {
         return cartService.findAll();

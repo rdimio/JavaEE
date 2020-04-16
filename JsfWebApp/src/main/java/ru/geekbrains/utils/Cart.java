@@ -2,14 +2,12 @@ package ru.geekbrains.utils;
 
 import ru.geekbrains.entity.Product;
 
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
+import javax.ejb.Stateless;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@SessionScoped
-@Named
+@Stateless
 public class Cart implements Serializable {
 
     private List<Product> cart;

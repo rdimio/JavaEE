@@ -1,25 +1,25 @@
-package ru.geekbrains.repositories;
+package ru.geekbrains.repositories.implementations;
 
 import ru.geekbrains.entity.Product;
+import ru.geekbrains.repositories.interfaces.ProductIntRepository;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Named;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@ApplicationScoped
-@Named
-public class ProductRepository {
+@Stateless
+public class ProductRepository implements ProductIntRepository {
 
     @PersistenceContext
     private EntityManager em;
 
-
+    @Override
     public void insert(Product product) {
         em.persist(product);
     }
 
+    @Override
     public void update(Product product)  {
         em.createNamedQuery("Product.update")
                 .setParameter("id", product.getId())
@@ -30,10 +30,12 @@ public class ProductRepository {
                 .executeUpdate();;
     }
 
+    @Override
     public void delete(long id) {
         em.createNamedQuery("Product.delete").setParameter("id", id).executeUpdate();
     }
 
+    @Override
     public Product findById(long id) {
         return em.createNamedQuery("Product.findById",Product.class).setParameter("id", id).getSingleResult();
     }

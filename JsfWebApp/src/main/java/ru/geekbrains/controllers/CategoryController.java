@@ -1,10 +1,10 @@
 package ru.geekbrains.controllers;
 
 import ru.geekbrains.entity.Category;
-import ru.geekbrains.services.CategoryService;
+import ru.geekbrains.services.interfaces.CategoryIntService;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
@@ -13,8 +13,8 @@ import java.util.List;
 @Named
 public class CategoryController implements Serializable {
 
-    @Inject
-    private CategoryService categoryService;
+    @EJB
+    private CategoryIntService categoryService;
 
     private Category category;
 

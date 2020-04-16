@@ -1,31 +1,32 @@
-package ru.geekbrains.repositories;
+package ru.geekbrains.repositories.implementations;
 
 import ru.geekbrains.entity.Category;
+import ru.geekbrains.repositories.interfaces.CategoryIntRepository;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Named;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
 import java.util.List;
 
-@ApplicationScoped
-@Named
-public class CategoryRepository {
+@Stateless
+public class CategoryRepository implements CategoryIntRepository {
 
     @PersistenceContext
     private EntityManager em;
 
-
+    @Override
     public void insert(Category category) {
         em.persist(category);
     }
 
+    @Override
     public void update(Category category)  {
         em.merge(category);
     }
 
+    @Override
     public void delete(long id) {
         Category category = em.find(Category.class,id);
         if(category != null) {
@@ -33,6 +34,7 @@ public class CategoryRepository {
         }
     }
 
+    @Override
     public Category findById(long id) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Category> query = cb.createQuery(Category.class);
@@ -45,6 +47,7 @@ public class CategoryRepository {
         return q.getSingleResult();
     }
 
+    @Override
     public List<Category> findAll() {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Category> query = cb.createQuery(Category.class);

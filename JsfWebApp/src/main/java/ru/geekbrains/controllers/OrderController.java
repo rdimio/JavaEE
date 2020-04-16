@@ -1,10 +1,10 @@
 package ru.geekbrains.controllers;
 
 import ru.geekbrains.entity.Order;
-import ru.geekbrains.services.OrderService;
+import ru.geekbrains.services.interfaces.OrderIntService;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
@@ -13,8 +13,8 @@ import java.util.List;
 @Named
 public class OrderController implements Serializable {
 
-    @Inject
-    private OrderService orderService;
+    @EJB
+    private OrderIntService orderService;
 
     private Order order;
 
