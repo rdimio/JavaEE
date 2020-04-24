@@ -21,13 +21,13 @@ public class ProductRepository implements ProductIntRepository {
 
     @Override
     public void update(Product product)  {
-        em.createNamedQuery("Product.update")
-                .setParameter("id", product.getId())
+/*        em.createNamedQuery("Product.update")
                 .setParameter("name", product.getName())
                 .setParameter("description", product.getDescription())
                 .setParameter("price", product.getPrice())
                 .setParameter("category", product.getCategory())
-                .executeUpdate();;
+                .executeUpdate();;*/
+        em.merge(product);
     }
 
     @Override

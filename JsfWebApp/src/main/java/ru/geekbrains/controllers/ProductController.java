@@ -22,16 +22,6 @@ public class ProductController implements Serializable {
     private CategoryIntService categoryService;
 
     private Product product;
-    private Category category;
-    private Long category_id;
-
-    public Long getCategory_id() {
-        return category_id;
-    }
-
-    public void setCategory_id(Long category_id) {
-        this.category_id = category_id;
-    }
 
     public Product getProduct() {
         return product;
@@ -60,8 +50,6 @@ public class ProductController implements Serializable {
     }
 
     public String saveProduct() {
-        category = findById(category_id);
-        product.setCategory(category);
         if (product.getId() == null) {
             productService.insert(product);
         } else {
