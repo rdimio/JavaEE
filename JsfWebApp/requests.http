@@ -1,0 +1,22 @@
+GET http://localhost:8080/JspWebApp/api/v1/product/all
+
+###
+
+###
+
+PUT http://localhost:8080/JspWebApp/api/v1/product/new
+Content-Type: application/json
+
+{
+  "description": "orange",
+  "name": "orange",
+  "price": 96.00
+}
+
+###
+
+GET http://localhost:8080/JspWebApp/api/v1/product/43/id
+
+###
+
+DELETE http://localhost:8080/JspWebApp/api/v1/product/43/id

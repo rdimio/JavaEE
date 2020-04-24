@@ -3,6 +3,7 @@ package ru.geekbrains.services.implementations;
 import ru.geekbrains.entity.Product;
 import ru.geekbrains.repositories.interfaces.ProductIntRepository;
 import ru.geekbrains.services.interfaces.ProductIntService;
+import ru.geekbrains.services.interfaces.RestIntService;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -10,7 +11,7 @@ import javax.ejb.TransactionAttribute;
 import java.util.List;
 
 @Stateless
-public class ProductService implements ProductIntService {
+public class ProductService implements ProductIntService, RestIntService {
 
     @EJB
     private ProductIntRepository productRepository;
