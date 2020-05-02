@@ -123,6 +123,21 @@
             <version>2.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.wildfly.security</groupId>
+            <artifactId>wildfly-elytron</artifactId>
+            <version>1.9.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly.core</groupId>
+            <artifactId>wildfly-cli</artifactId>
+            <version>6.0.2.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly</groupId>
+            <artifactId>wildfly-security</artifactId>
+            <version>10.0.0.Final</version>
+        </dependency>
 
     </dependencies>
 
